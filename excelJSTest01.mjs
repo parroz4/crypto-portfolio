@@ -32,14 +32,14 @@ rowValues[9] = networthAvax;
 
 const response2 = await fetch('https://openapi.debank.com/v1/user/complex_protocol_list?id=0x3a0a36c16136d0eef403b049917b98dbac3f4463&chain_id=bsc')
 const data2 = await response2.json()
-var networthBscBeefyStatik = data2[0].portfolio_item_list[0].stats.net_usd_value
-var networthBscBeefyOasis = data2[0].portfolio_item_list[1].stats.net_usd_value
+//var networthBscBeefyStatik = data2[0].portfolio_item_list[0].stats.net_usd_value
+var networthBscBeefyOasis = data2[0].portfolio_item_list[0].stats.net_usd_value
 var networthBscKalmar = data2[1].portfolio_item_list[0].stats.net_usd_value
-console.log('BeefyStatic :' + networthBscBeefyStatik)
+//console.log('BeefyStatic :' + networthBscBeefyStatik)
 console.log('BeefyOasis :' + networthBscBeefyOasis)
 console.log('Kalmar :' + networthBscKalmar)
 
-rowValues[4] = networthBscBeefyStatik;
+//rowValues[4] = networthBscBeefyStatik;
 rowValues[5] = networthBscBeefyOasis;
 rowValues[6] = networthBscKalmar;
 
@@ -54,15 +54,15 @@ rowValues[8] = networthFTMBeefyTomb;
 
 const response4 = await fetch('https://openapi.debank.com/v1/user/complex_protocol_list?id=0x3a0a36c16136d0eef403b049917b98dbac3f4463&chain_id=avax')
 const data4 = await response4.json()
-var networthAvaxBeefyUstUsdc = data4[0].portfolio_item_list[0].stats.net_usd_value
-var networthAvaxBooFinanceLP = data4[1].portfolio_item_list[0].stats.net_usd_value
-var networthAvaxBooFinanceStaked = data4[1].portfolio_item_list[1].stats.net_usd_value
-console.log('BeefyUSTUSDC :' + networthAvaxBeefyUstUsdc)
+//var networthAvaxImpermaxUstUsdc = data4[1].portfolio_item_list[0].stats.net_usd_value
+var networthAvaxBooFinanceLP = data4[0].portfolio_item_list[0].stats.net_usd_value
+var networthAvaxBooFinanceStaked = data4[0].portfolio_item_list[1].stats.net_usd_value
+//console.log('ImpermaxUSTUSDC :' + networthAvaxImpermaxUstUsdc)
 console.log('BooFinanceAvax :' + networthAvaxBooFinanceLP)
 console.log('BooFinanceStaked :' + networthAvaxBooFinanceStaked)
 
 
-rowValues[14] = networthAvaxBeefyUstUsdc;
+//rowValues[14] = networthAvaxBeefyUstUsdc;
 rowValues[12] = networthAvaxBooFinanceLP;
 rowValues[13] = networthAvaxBooFinanceStaked;
 
