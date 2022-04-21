@@ -26,7 +26,7 @@ rowValues[1] = new Date();
 rowValues[2] = networth;
 rowValues[3] = networthBsc;
 rowValues[7] = networthFantom;
-rowValues[9] = networthAvax;
+rowValues[10] = networthAvax;
 
 
 
@@ -34,15 +34,20 @@ const response2 = await fetch('https://openapi.debank.com/v1/user/complex_protoc
 const data2 = await response2.json()
 //var networthBscBeefyStatik = data2[0].portfolio_item_list[0].stats.net_usd_value
 var networthBscBeefyOasis = data2[0].portfolio_item_list[0].stats.net_usd_value
-var networthBscKalmar = data2[1].portfolio_item_list[0].stats.net_usd_value
+// var networthBscKalmar = data2[1].portfolio_item_list[0].stats.net_usd_value
 //console.log('BeefyStatic :' + networthBscBeefyStatik)
 console.log('BeefyOasis :' + networthBscBeefyOasis)
-console.log('Kalmar :' + networthBscKalmar)
+// console.log('Kalmar :' + networthBscKalmar)
 
 //rowValues[4] = networthBscBeefyStatik;
 rowValues[5] = networthBscBeefyOasis;
-rowValues[6] = networthBscKalmar;
 
+const response5 = await fetch('https://openapi.debank.com/v1/user/token?id=0x3a0a36c16136d0eef403b049917b98dbac3f4463&chain_id=bsc&token_id=0xc146b7cdbaff065090077151d391f4c96aa09e0c')
+const data5 = await response5.json()
+var networthBscMCC = data5.price * data5.amount;
+console.log('BscMCC : '+ networthBscMCC)
+
+rowValues[6] = networthBscMCC;
 
 const response3 = await fetch('https://openapi.debank.com/v1/user/complex_protocol_list?id=0x3a0a36c16136d0eef403b049917b98dbac3f4463&chain_id=ftm')
 const data3 = await response3.json()
@@ -51,6 +56,12 @@ console.log('BeefyTomb :' + networthFTMBeefyTomb)
 
 rowValues[8] = networthFTMBeefyTomb;
 
+const response6 = await fetch('https://openapi.debank.com/v1/user/token?id=0x3a0a36c16136d0eef403b049917b98dbac3f4463&chain_id=ftm&token_id=0xa231d452e4bca86672fd6109de94688d1e17aae5')
+const data6 = await response6.json()
+var networthFtmSCC = data6.price * data6.amount;
+console.log('FtmSCC : '+ networthFtmSCC)
+
+rowValues[9] = networthFtmSCC;
 
 const response4 = await fetch('https://openapi.debank.com/v1/user/complex_protocol_list?id=0x3a0a36c16136d0eef403b049917b98dbac3f4463&chain_id=avax')
 const data4 = await response4.json()
@@ -63,8 +74,8 @@ console.log('BooFinanceStaked :' + networthAvaxBooFinanceStaked)
 
 
 //rowValues[14] = networthAvaxBeefyUstUsdc;
-rowValues[12] = networthAvaxBooFinanceLP;
-rowValues[13] = networthAvaxBooFinanceStaked;
+rowValues[13] = networthAvaxBooFinanceLP;
+rowValues[14] = networthAvaxBooFinanceStaked;
 
 
 const workbook = new ExcelJS.Workbook();
